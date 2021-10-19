@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.subsystems;
+package org.usfirst.frc.team2077.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj.templates.commands.*;
 
-import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.SwerveModule;
+import org.usfirst.frc.team2077.RobotMap;
+import org.usfirst.frc.team2077.SwerveModule;
+import org.usfirst.frc.team2077.commands.Drive;
 
 /**
  * DriveSubsys

@@ -3,7 +3,7 @@
 /* Open Source Software - may be modified and shared by FRC teams.            */
 /*----------------------------------------------------------------------------*/
 
-package edu.wpi.first.wpilibj.templates;
+package org.usfirst.frc.team2077;
 
 import edu.wpi.first.wpilibj.Joystick;
 

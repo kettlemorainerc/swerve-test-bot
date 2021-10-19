@@ -1,5 +1,5 @@
 
-package edu.wpi.first.wpilibj.templates;
+package org.usfirst.frc.team2077;
 
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.buttons.Button;

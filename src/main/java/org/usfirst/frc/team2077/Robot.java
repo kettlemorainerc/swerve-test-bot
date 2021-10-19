@@ -5,15 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package edu.wpi.first.wpilibj.templates;
+package org.usfirst.frc.team2077;
 
 
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import org.usfirst.frc.team2077.commands.CommandBase;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,7 +20,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 
     //Command autonomousCommand;
 
@@ -46,10 +44,11 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during autonomous
      */
-    public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
-    }
 
+    @Override
+    public void autonomousPeriodic() {}
+
+    @Override
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
@@ -58,25 +57,23 @@ public class Robot extends IterativeRobot {
         //autonomousCommand.cancel();
         
         // Allow debugging by setting PID values via the Smart Dashboard
-        CommandBase.oi.stickTranDeadzone = SmartDashboard.getNumber("Stick Tran Deadzone");
-        CommandBase.oi.stickRotDeadzone = SmartDashboard.getNumber("Stick Rot Deadzone");
-        CommandBase.driveSubsys.deadAngle = SmartDashboard.getNumber("Dead Angle");
-        CommandBase.driveSubsys.Pvalue = SmartDashboard.getNumber("Pvalue");
-        CommandBase.driveSubsys.Ivalue = SmartDashboard.getNumber("Ivalue");
-        CommandBase.driveSubsys.Dvalue = SmartDashboard.getNumber("Dvalue");
+        CommandBase.oi.stickTranDeadzone = SmartDashboard.getNumber("Stick Tran Deadzone",0d);
+        CommandBase.oi.stickRotDeadzone = SmartDashboard.getNumber("Stick Rot Deadzone",0d);
+        CommandBase.driveSubsys.deadAngle = SmartDashboard.getNumber("Dead Angle",0d);
+        CommandBase.driveSubsys.Pvalue = SmartDashboard.getNumber("Pvalue",0d);
+        CommandBase.driveSubsys.Ivalue = SmartDashboard.getNumber("Ivalue",0d);
+        CommandBase.driveSubsys.Dvalue = SmartDashboard.getNumber("Dvalue",0d);
     }
 
     /**
-     * This function is called periodically during operator control
+     * This function is called periodically during teleoperator control
      */
-    public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-    }
+    @Override
+    public void teleopPeriodic() {}
     
     /**
      * This function is called periodically during test mode
      */
-    public void testPeriodic() {
-        LiveWindow.run();
-    }
+    @Override
+    public void testPeriodic() {}
 }

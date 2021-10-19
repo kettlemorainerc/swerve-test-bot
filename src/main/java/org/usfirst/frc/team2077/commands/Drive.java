@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
+package org.usfirst.frc.team2077.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.subsystems.DriveSubsys;
+import org.usfirst.frc.team2077.OI;
+import org.usfirst.frc.team2077.subsystems.DriveSubsys;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
@@ -25,21 +25,21 @@ public class Drive extends CommandBase {
     private double lastTime = 0.0;
     private final DriveSubsys driveSubsys;
 
-    Static oi = new OI();
+    static OI oi = new OI();
 
     // Show what command your subsystem is running on the SmartDashboard
     //SmartDashboard.putData(driveSubsys);
 
+
+    public Drive() {
+        driveSubsys = new DriveSubsys();
+        addRequirements(driveSubsys);
         SmartDashboard.putNumber("Stick Tran Deadzone", oi.stickTranDeadzone);
         SmartDashboard.putNumber("Stick Rot Deadzone", oi.stickRotDeadzone);
         SmartDashboard.putNumber("Dead Angle", driveSubsys.deadAngle);
         SmartDashboard.putNumber("Pvalue", driveSubsys.Pvalue);
         SmartDashboard.putNumber("Ivalue", driveSubsys.Ivalue);
         SmartDashboard.putNumber("Dvalue", driveSubsys.Dvalue);
-
-    public Drive() {
-        driveSubsys = new DriveSubsys();
-        addRequirements(driveSubsys);
     }
 
 
@@ -52,7 +52,7 @@ public class Drive extends CommandBase {
     public void execute() {
         double dt = time.get() - lastTime;
 
-        driveSubsys.drive(CommandBase.oi.getMag(), CommandBase.oi.getDir(), CommandBase.oi.getRot(), dt);
+        driveSubsys.drive(oi.getMag(), oi.getDir(), oi.getRot(), dt);
         lastTime = time.get();
     }
 
