@@ -9,9 +9,12 @@ package org.usfirst.frc.team2077;
 
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import org.usfirst.frc.team2077.Sensors.AnalogPreasure;
 import org.usfirst.frc.team2077.commands.CommandBase;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +36,7 @@ public class Robot extends TimedRobot {
         //autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
+        System.out.println("Robot Init");
         CommandBase.init();
     }
 
@@ -63,6 +67,27 @@ public class Robot extends TimedRobot {
         CommandBase.driveSubsys.Pvalue = SmartDashboard.getNumber("Pvalue",0d);
         CommandBase.driveSubsys.Ivalue = SmartDashboard.getNumber("Ivalue",0d);
         CommandBase.driveSubsys.Dvalue = SmartDashboard.getNumber("Dvalue",0d);
+
+
+
+        //@@@
+//        AnalogPreasure analogPressure = new AnalogPreasure(0);
+//
+//        do{
+//            double analogValue = analogPressure.getPreasure();
+//            System.out.println("The pressure is "+analogValue);
+//            try{
+//                TimeUnit.MILLISECONDS.sleep(200);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }while(true);
+        
+    }
+
+    @Override
+    public void robotPeriodic() {
+        CommandScheduler.getInstance().run();
     }
 
     /**

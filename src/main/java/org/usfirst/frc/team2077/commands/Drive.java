@@ -11,7 +11,6 @@ import org.usfirst.frc.team2077.OI;
 import org.usfirst.frc.team2077.subsystems.DriveSubsys;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-
 /**
  * Drive
  * 
@@ -31,9 +30,10 @@ public class Drive extends CommandBase {
     //SmartDashboard.putData(driveSubsys);
 
 
-    public Drive() {
-        driveSubsys = new DriveSubsys();
+    public Drive(DriveSubsys driveSubsys) {
+        this.driveSubsys = driveSubsys;
         addRequirements(driveSubsys);
+        System.out.println("Drive Constructor");
         SmartDashboard.putNumber("Stick Tran Deadzone", oi.stickTranDeadzone);
         SmartDashboard.putNumber("Stick Rot Deadzone", oi.stickRotDeadzone);
         SmartDashboard.putNumber("Dead Angle", driveSubsys.deadAngle);
@@ -45,11 +45,17 @@ public class Drive extends CommandBase {
 
     // Called just before this Command runs the first time
     public void initialize() {
+
+        System.out.println("Drive Initialize");
+
+
         time.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     public void execute() {
+        System.out.println("Drive Execute");
+
         double dt = time.get() - lastTime;
 
         driveSubsys.drive(oi.getMag(), oi.getDir(), oi.getRot(), dt);

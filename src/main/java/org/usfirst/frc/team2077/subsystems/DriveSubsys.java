@@ -38,6 +38,8 @@ public class DriveSubsys implements Subsystem {
     public DriveSubsys() {
         double length = 29.0; // TODO: move this constant to RobotMap;
         double width = 20.0; // TODO: move this constant to RobotMap;
+
+        setDefaultCommand(new Drive(this));
         
         upperRight = new SwerveModule(RobotMap.magnitudeMotor1, RobotMap.directionMotor1, RobotMap.encoder1ChannelA, RobotMap.encoder1ChannelB, length/2, width/2);
         upperRight.setPID(deadAngle, Pvalue, Ivalue, Dvalue);
@@ -99,10 +101,5 @@ public class DriveSubsys implements Subsystem {
         
         System.out.println("URE: " + upperRight.getRawEncoder() + " LRE: " + lowerRight.getRawEncoder() + " LLE: " + lowerLeft.getRawEncoder() + " ULE: " + upperLeft.getRawEncoder());
         //System.out.println("Mag: " + mag + " dir: " + dir + " rot: " + rot);
-    }
-    
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        setDefaultCommand(new Drive());
     }
 }
