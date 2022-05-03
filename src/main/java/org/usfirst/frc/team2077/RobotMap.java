@@ -9,21 +9,21 @@ package org.usfirst.frc.team2077;
 public class RobotMap {
     public static final int mainJoystick = 1;
     
-    public static final int magnitudeMotor1 = 1;
-    public static final int directionMotor1 = 2;
+    public static final int magnitudeMotor1 = 2;
+    public static final int directionMotor1 = 1;
     
-    public static final int magnitudeMotor2 = 3;
-    public static final int directionMotor2 = 4;
+    public static final int magnitudeMotor2 = 4;
+    public static final int directionMotor2 = 3;
     
-    public static final int magnitudeMotor3 = 5;
-    public static final int directionMotor3 = 6;
+    public static final int magnitudeMotor3 = 6;
+    public static final int directionMotor3 = 5;
     
-    public static final int magnitudeMotor4 = 7;
-    public static final int directionMotor4 = 8;
+    public static final int magnitudeMotor4 = 8;
+    public static final int directionMotor4 = 7;
    
     public static final int encoder1ChannelA = 1;
     public static final int encoder1ChannelB = 2;
-    
+
     public static final int encoder2ChannelA = 3;
     public static final int encoder2ChannelB = 4;
     
